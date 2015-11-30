@@ -50,6 +50,11 @@ app.get('/signin', function(req, res) {
   res.sendFile(__dirname + '/public/signin.html');
 });
 
+app.get('/signout', function(req, res) {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 app.post('/signin', function(req, res) {
   var email = req.body.email;
   var password = req.body.password;

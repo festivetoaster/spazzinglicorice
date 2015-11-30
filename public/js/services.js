@@ -12,8 +12,18 @@ angular.module('services', [])
     });
   };
 
+  var signout = function () {
+    return $http({
+      method: 'GET',
+      url: '/signout'
+    })
+    .then(function (resp) {
+    });
+  };
+
   return {
-    signin: signin
+    signin: signin,
+    signout: signout
   };
 })
 
