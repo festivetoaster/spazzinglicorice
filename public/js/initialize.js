@@ -138,7 +138,7 @@ $(function() {
     App.canvas.on('drag', function(e) {
       // Allow user drawing only if other users are not drawing.
       if (!App.isAnotherUserActive) {
-        if (App.mouse.click) {
+        if (App.mouse.click && App.pen.strokeStyle !== 'textBox') {
           App.mouse.drag = true;
 
           // Find x,y coordinates of the mouse dragging on the canvas.
