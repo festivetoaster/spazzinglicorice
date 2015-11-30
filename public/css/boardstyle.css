@@ -54,7 +54,7 @@ h1 {
 }
 
 
-.whiteboard.container { 
+.whiteboard.container {
   background-color: #fff;
   /*position: relative;*/
 /*  margin: 10% 10%;
@@ -318,6 +318,18 @@ label[for=blue] {
   background: purple;
 }
 
+
+/************* Material Sidenav *************/
+
+header, main, footer {
+   padding-left: 240px;
+ }
+
+ @media only screen and (max-width : 992px) {
+   header, main, footer {
+     padding-left: 0;
+   }
+ }
 
 
 

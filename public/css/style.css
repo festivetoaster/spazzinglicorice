@@ -6,7 +6,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #000; 
+  background: #000;
   color: #000;
   /*font-family: 'Source Sans Pro', sans-serif;*/
   font-family: 'Montserrat', sans-serif;
@@ -24,12 +24,12 @@ body {
   height: 100%;
 }
 
-video { 
+video {
 /*  position: fixed;
   /*-webkit-transform: translateX(-50%) translateY(-50%);*/
   top: 0;
   z-index: -100;
-  left: 0; 
+  left: 0;
   min-height: 104%;
   min-width: 100%;
   position: absolute;
@@ -54,7 +54,7 @@ video {
   }
 }
 
-.stopfade { 
+.stopfade {
  opacity: .5;
 }
 
@@ -134,7 +134,7 @@ video {
 #newBoardForm {
 }
 
-button {
+.landing-button {
   background-color:#ffffff;
   -moz-border-radius:26px;
   -webkit-border-radius:26px;
@@ -148,10 +148,10 @@ button {
   text-decoration:none;
   font-family: 'Montserrat', sans-serif;
 }
-button:hover {
+.landing-button:hover {
   background-color:#ffffff;
 }
-button:active {
+.landing-button:active {
   position:relative;
   top:1px;
 }
