@@ -54,9 +54,14 @@ h1 {
 }
 
 
-.whiteboard.container { 
+.whiteboard.container {
   background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
   /*position: relative;*/
+  /*top:0px;*/
 /*  margin: 10% 10%;
   left: 30px;
   margin: 10px;
@@ -66,11 +71,18 @@ h1 {
   /**/
 }
 
-.toolbar {
-  background-color: #00BB9C;
-  width: 100%;
-  margin: 0 auto;
+.navbar {
+  margin-bottom: 0px !important;
+}
+
+#toolbar {
+  background-color: #8DCCF8;
+  width: 10%;
+  top: 150px;
+  left: 150px;
   position: absolute;
+  text-align: center;
+  opacity: 0.9;
 }
 
 .board-frame {
@@ -150,7 +162,6 @@ div.btn-erase {
 }
 
 .new {
-  position: absolute;
   right: 15px;
   top: 32%;
   width: 106px;
@@ -188,7 +199,7 @@ input[type=checkbox] {
   height: 28px;
   background: #fcfff4;
   display: inline-block;
-  margin: 20px 5px;
+  margin-bottom: 15px;
 
   background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
   background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
@@ -317,8 +328,3 @@ label[for=blue] {
 .palette #purple:not(:checked) + label:after {
   background: purple;
 }
-
-
-
-
-

@@ -13,7 +13,7 @@ App.init = function() {
   App.socket = io(ioRoom);
 
 
-  //**Video Chat Functionality** 
+  //**Video Chat Functionality**
 
   // Create a video chat Object.
   var webrtc = new SimpleWebRTC({
@@ -35,7 +35,7 @@ App.init = function() {
   // Set properties of the whiteboard.
   App.canvas = $('#whiteboard');
   App.canvas[0].width = window.innerWidth;
-  App.canvas[0].height = window.innerHeight * 0.7;
+  App.canvas[0].height = window.innerHeight * 0.9;
   App.context = App.canvas[0].getContext("2d");
 
   // Set properties of the mouse click.
@@ -55,13 +55,13 @@ App.init = function() {
     lineCap: 'round'
   };
 
-  // ```App.isAnotherUserActive``` is a Boolean that signals whether another user is currently drawing. The current implementation is such that only 1 user can draw at a time, i.e. simultaneous drawing is forbidden. To get rid of this functionality, remove  ```App.isAnotherUserActive``` and conditional loops that require it. 
+  // ```App.isAnotherUserActive``` is a Boolean that signals whether another user is currently drawing. The current implementation is such that only 1 user can draw at a time, i.e. simultaneous drawing is forbidden. To get rid of this functionality, remove  ```App.isAnotherUserActive``` and conditional loops that require it.
   App.isAnotherUserActive = false;
 
-  // ```App.stroke``` is an array of [x,y] coordinates for one drawing element. They are stored here, emitted ([in initialize.js](../docs/initialize.html)), and sent to [sockets.js](../docs/sockets.html). Once sent, ```App.stroke``` is emptied. 
+  // ```App.stroke``` is an array of [x,y] coordinates for one drawing element. They are stored here, emitted ([in initialize.js](../docs/initialize.html)), and sent to [sockets.js](../docs/sockets.html). Once sent, ```App.stroke``` is emptied.
   App.stroke = [];
 
-  // ```App.prevPixel``` contains only 1 [x,y] coordinate pair - the coordinates of the previous pixel drawn. This is used in ```App.socket.on('drag'...``` for smooth rendering of drawn elements by other users. 
+  // ```App.prevPixel``` contains only 1 [x,y] coordinate pair - the coordinates of the previous pixel drawn. This is used in ```App.socket.on('drag'...``` for smooth rendering of drawn elements by other users.
   App.prevPixel = [];
 
 
@@ -102,7 +102,7 @@ App.init = function() {
         borderWidth: 0,
         innerShadow: 'none',
         boxShadow: 'none',
-        backgroundColor: 'white', 
+        backgroundColor: 'white',
         borderColor: 'white',
         placeHolder: 'new text box',
         fontSize: 19,
@@ -209,14 +209,14 @@ App.init = function() {
   })
 
 
-  // If another user is drawing, App.socket will receive a 'drag' event. App listens for the drag event and renders the drawing element created by the other user. 
-  // Note that App prevents the current user from drawing while the other user is still drawing. 
+  // If another user is drawing, App.socket will receive a 'drag' event. App listens for the drag event and renders the drawing element created by the other user.
+  // Note that App prevents the current user from drawing while the other user is still drawing.
   App.socket.on('drag', function(data) {
     App.isAnotherUserActive = true;
     console.log("Receiving data from another user:", data);
 
-    // ```App.prevPixel``` is an array of the previous coordinates sent, so drawing is smoothly rendered across different browsers. 
-    // If the ```App.prevPixel``` array is empty (i.e., this is the first pixel of the drawn element), then prevPixel is set as the coordinates of the current mouseclick. 
+    // ```App.prevPixel``` is an array of the previous coordinates sent, so drawing is smoothly rendered across different browsers.
+    // If the ```App.prevPixel``` array is empty (i.e., this is the first pixel of the drawn element), then prevPixel is set as the coordinates of the current mouseclick.
     if (App.prevPixel.length === 0) {
       App.prevPixel = data.coords;
     }
@@ -226,7 +226,7 @@ App.init = function() {
     App.initializeMouseDown(data.pen, App.prevPixel[0], App.prevPixel[1]);
     App.draw(data.coords[0], data.coords[1]);
 
-    // Set the current coordinates as App.prevPixel, so the next pixel rendered will be smoothly drawn from these coordinate points to the next ones. 
+    // Set the current coordinates as App.prevPixel, so the next pixel rendered will be smoothly drawn from these coordinate points to the next ones.
     App.prevPixel = data.coords;
 
   });
@@ -292,8 +292,8 @@ App.init = function() {
 
       //add back one stroke at a time until all are back
       var speedOfReplay = 1000; // time per stroke
-      (function fastForward (i) {          
-         setTimeout(function () {   
+      (function fastForward (i) {
+         setTimeout(function () {
             // Check for null stroke data.
             if (board.strokes[i]) {
               //check if a textBox is the current element
@@ -321,7 +321,7 @@ App.init = function() {
             }
             if (++i < board.strokes.length) fastForward(i);  // recursively call fastforward until all strokes have been rendered
          }, speedOfReplay)
-      })(playbackStartValue);  
+      })(playbackStartValue);
 
       //when replay is finished, set user as no longer active
     }
@@ -329,9 +329,9 @@ App.init = function() {
     board = board || {strokes: []}
     setTimeout(function() {
       App.isAnotherUserActive = false;
-    }, ((board.strokes.length - playbackStartValue) * speedOfReplay))  
+    }, ((board.strokes.length - playbackStartValue) * speedOfReplay))
   })
-  
+
   //related rewind stuff to be moved into initialize later after merge
   $('.inline').on('change', function() {
     //set user as active so multiple replays cannot run in concert

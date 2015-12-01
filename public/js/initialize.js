@@ -13,6 +13,10 @@ $(function() {
   // Set up video to be draggable.
   $('#localVideo').draggable();
   $('#remoteVideos').draggable();
+  $('#toolbar').draggable();
+  $('#text-box').tooltip();
+  $('#undo').tooltip();
+  $('#eraser').tooltip();
 
 
 
