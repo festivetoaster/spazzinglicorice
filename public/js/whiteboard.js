@@ -19,7 +19,6 @@ angular.module('whiteboard', ['ui.router', 'services'])
     $scope.board = {};
     var path = $location.$$absUrl.split('/')[2];
     Boards.getBoard(path).then(function (resp) {
-      debugger;
       $scope.boardName = resp.data.name;
     });
 

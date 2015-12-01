@@ -37,7 +37,7 @@
           </ul>
           <ul class="nav navbar-nav center">
             <li class="title">
-              <input class="title-text" type="text" ng-if="!boardName" ng-model="board.boardName" ng-submit="submitBoardName(board.boardName)">
+              <form ng-submit="submitBoardName()" ng-if="!boardName"><input class="title-text" type="text" ng-model="board.boardName"></form>
               <h3 ng-if="boardName">{{ boardName }}</h3>
             </li>
           </ul>
