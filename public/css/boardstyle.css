@@ -70,9 +70,28 @@ h1 {
   width: 80%;*/
   /**/
 }
-
+.nav.center {
+  margin-left: 20%;
+}
 .navbar {
   margin-bottom: 0px !important;
+}
+.title {
+  text-align: center;
+  margin: 0 auto;
+}
+.title-text {
+  background-color: #F8F8F8;
+  border-style: none;
+  color: black;
+  font-size: 20pt;
+  opacity: 1;
+  text-decoration: none;
+  padding-top: 10px;
+}
+
+.title-text:focus {
+  outline: none;
 }
 
 #toolbar {

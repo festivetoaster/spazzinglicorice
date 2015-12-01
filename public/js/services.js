@@ -39,9 +39,34 @@ angular.module('services', [])
     });
   };
 
+  var getBoard = function (boardId) {
+    return $http({
+      method: 'GET',
+      url: '/board/' + boardId
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
+  var postBoardName = function (name, boardId) {
+    return $http({
+      method: 'PUT',
+      url: '/board/' + boardId,
+      data: {
+        name: name
+      }
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
+  };
+
   return {
     getAll: getAll,
-    getNew: getNew
+    getNew: getNew,
+    getBoard: getBoard,
+    postBoardName: postBoardName
   };
 
 });
