@@ -1,6 +1,6 @@
 angular.module('boards', ['services'])
 
-.controller('BoardsController', function ($scope, $window, $location, Boards) {
+.controller('BoardsController', function ($scope, $window, $location, Boards, Auth) {
   $scope.data = [];
 
   $scope.getBoards = function () {
@@ -21,6 +21,16 @@ angular.module('boards', ['services'])
      .catch(function (error) {
        console.error(error);
      });
+ };
+
+ $scope.signout = function () {
+  Auth.signout()
+    .then(function (data) {
+      $window.location = '/';
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
  }; 
 
  $scope.getBoards();

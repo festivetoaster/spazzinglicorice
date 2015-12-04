@@ -134,6 +134,10 @@ video {
 #newBoardForm {
 }
 
+#signout-button {
+  float: right;
+}
+
 button {
   background-color:#ffffff;
   -moz-border-radius:26px;

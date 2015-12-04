@@ -15,6 +15,9 @@
       <form ng-controller="BoardsController" id="newBoardForm" ng-submit='newBoard()'>
         <button>Create New Board</button>
       </form>
+      <form ng-controller="BoardsController" id="signout-button" ng-submit='signout()'>
+        <button>Sign out</button>
+      </form>      
     <!-- <input type='text' ng-model='search' placeholder='filter' /> -->
     <div ng-controller="BoardsController" class="boards">
       <div class="board" ng-repeat="board in data.boards">
